@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: zConForm (Zenziva Contact Form)
+Plugin Name: Zenziva Contact Form
 Plugin URI: http://www.zenziva.com
-Description: Kirim email dan SMS alert ke administrator jika ada yang menghubungi melalui contact form. Kirim SMS alert kepada pengunjung yang telah mengisi contact form. Fitur kirim SMS menggunakan layanan dari <a href="http://www.zenziva.com" >Zenziva Online SMS Gateway</a>. Install dan masukkan shortcode [zconform] pada page atau post yang anda inginkan untuk menampilkan Contact Form.
+Description: Kirim email dan SMS alert ke administrator dan pengunjung yang telah mengisi contact form. Install dan masukkan shortcode [zconform] pada page atau post yang anda inginkan untuk menampilkan Contact Form.
 Version: 1.0
 Author: Hardcoder
 Author URI: http://www.galerikita.net
@@ -284,7 +284,7 @@ function zconform_settings(){
 
 function zenziva_dashboard(){ ?>
     <div class="wrap">
-    	<iframe src="http://www.zenziva.com/login.php" frameBorder="0" width="98%" height="530"></iframe>    				
+    	<iframe src="http://www.zenziva.com/v2/login/" frameBorder="0" width="98%" height="530"></iframe>    				
     </div>
 <?php  }
 
@@ -376,7 +376,7 @@ function api_settings(){
     <table width="100%" cellpadding="5" cellspacing="5" border="0">
 		
         <tr>
-        	<td width="200">Userkey</td>
+        	<td width="100">Userkey</td>
             <td><input type="text" id="zconformuserkey" name="zconformuserkey" size="40px" value="<?php echo $username;?>"></td>
         </tr>
         <tr>
