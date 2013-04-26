@@ -8,7 +8,7 @@ Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Kirim email dan SMS alert ke administrator jika ada yang menghubungi melalui contact form. Kirim SMS alert kepada pengunjung yang telah mengisi contact form.
+Kirim email dan SMS alert ke administrator jika ada yang menghubungi melalui contact form. Kirim SMS alert kepada pengunjung yang telah mengisi form.
 
 == Description ==
 
@@ -21,7 +21,7 @@ Kirim email dan SMS alert ke administrator jika ada yang menghubungi melalui con
 
 == Installation ==
 
-1. Install plugin zconform.zip
+1. Install plugin zenziva-contact-form.zip
 1. Aktifkan plugin
 1. Setting zContact Form
 1. Masukkan shortcode [zconform] pada page atau post yang anda inginkan untuk menampilkan Contact Form.
@@ -43,22 +43,20 @@ Setelah mempunyai account di zenziva.com, silahkan login dan masuk ke menu SMS S
 3. Contact Form
 
 == Changelog ==
-
 = 1.1 =
-* Fix captcha bug
-* Fix css bug
+* Fix captcha bug.
+* Fix css bug.
 
 = 1.0 =
-* First release
+* First release.
 
 == Upgrade Notice ==
 
 = 1.1 =
-* Fix captcha bug
-* Fix css bug
+Upgrade for fix captcha image and Contact Form css.
 
 = 1.0 =
-* Just release
+Just release.
 
 == Fitur ==
 
