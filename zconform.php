@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Zenziva Contact Form
+Plugin Name: zConForm (Zenziva Contact Form)
 Plugin URI: http://www.zenziva.com
-Description: Kirim email dan SMS alert ke administrator dan pengunjung yang telah mengisi contact form. Install dan masukkan shortcode [zconform] pada page atau post yang anda inginkan untuk menampilkan Contact Form.
-Version: 1.0
+Description: Kirim email dan SMS alert ke administrator jika ada yang menghubungi melalui contact form. Kirim SMS alert kepada pengunjung yang telah mengisi contact form. Fitur kirim SMS menggunakan layanan dari <a href="http://www.zenziva.com" >Zenziva Online SMS Gateway</a>. Install dan masukkan shortcode [zconform] pada page atau post yang anda inginkan untuk menampilkan Contact Form.
+Version: 1.1
 Author: Hardcoder
 Author URI: http://www.galerikita.net
 License: 
@@ -19,19 +19,19 @@ if(!isset($_SESSION)){
 function zconform_init() {
     global $user_ID;
     wp_enqueue_script('jquery');
-    wp_enqueue_script('abah_script', WP_PLUGIN_URL .'/zconform/lib/js/karakter.js', array('jquery'), '1.0', true);		
+    wp_enqueue_script('abah_script', WP_PLUGIN_URL .'/zenziva-contact-form/lib/js/karakter.js', array('jquery'), '1.0', true);		
 }
 add_action('init', 'zconform_init');
 
 function zconform_shortcode(){
 	global $post;
-		$view = '<link rel="stylesheet" type="text/css" href="'.WP_PLUGIN_URL.'/zconform/lib/css/form.css">
-		<link rel="stylesheet" href="'.WP_PLUGIN_URL.'/zconform/lib/css/validationEngine.jquery.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="'.WP_PLUGIN_URL.'/zconform/lib/css/template.css">
-			<script src="'.WP_PLUGIN_URL.'/zconform/lib/js/jquery.validate.min.js" type="text/javascript"></script>
+		$view = '<link rel="stylesheet" type="text/css" href="'.WP_PLUGIN_URL.'/zenziva-contact-form/lib/css/form.css">
+		<link rel="stylesheet" href="'.WP_PLUGIN_URL.'/zenziva-contact-form/lib/css/validationEngine.jquery.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="'.WP_PLUGIN_URL.'/zenziva-contact-form/lib/css/template.css">
+			<script src="'.WP_PLUGIN_URL.'/zenziva-contact-form/lib/js/jquery.validate.min.js" type="text/javascript"></script>
 			<script type="text/javascript">
 				function changeimg(){
-					document.getElementById("captcha").src="'.WP_PLUGIN_URL.'/zconform/lib/captcha.php?"+Math.random();
+					document.getElementById("captcha").src="'.WP_PLUGIN_URL.'/zenziva-contact-form/lib/captcha.php?"+Math.random();
 				}
 			</script>';
 	
@@ -55,7 +55,7 @@ function zconform_shortcode(){
 			
 			// Send Email
 			if(get_option('zconform_smtp') == 1 && get_option('zconform_smtp_host') != "" && get_option('zconform_smtp_username') != "" && get_option('zconform_smtp_pass') != "" && get_option('zconform_smtp_port') != ""){
-				require_once(WP_PLUGIN_DIR."/zconform/lib/class.phpmailer.php");
+				require_once(WP_PLUGIN_DIR."/zenziva-contact-form/lib/class.phpmailer.php");
 				
 				$to = get_option('admin_email');
 				$nama = get_option('zconform_name') == "1" ? 'Nama: '.$_POST['nama'] : 'Visitor';
@@ -218,8 +218,8 @@ function zconform_shortcode(){
 			
 			if(get_option('zconform_captcha') == "1"){
 			$view .= '<li>
-									<img src="'.WP_PLUGIN_URL.'/zconform/lib/captcha.php" id="captcha" />
-									<a href="#" onclick="javascript:changeimg(); return false" id="change-image"><img src="'.WP_PLUGIN_URL.'/zconform/lib/img/reload.png" title="Change Image" /></a><br />
+									<img src="'.WP_PLUGIN_URL.'/zenziva-contact-form/lib/captcha.php" id="captcha" />
+									<a href="#" onclick="javascript:changeimg(); return false" id="change-image"><img src="'.WP_PLUGIN_URL.'/zenziva-contact-form/lib/img/reload.png" title="Change Image" /></a><br />
 									<input type="text" class="required" value="" name="captcha" id="capt"/>
 								</li>';
 			}
@@ -245,7 +245,7 @@ if ( is_admin() ){
 }
 
 function zconform_menu() {
-   add_menu_page('Zenziva Contact Form', 'zContact Form', 8, __FILE__, 'zconform_settings', WP_PLUGIN_URL . '/zconform/zconform.png');
+   add_menu_page('Zenziva Contact Form', 'zContact Form', 8, __FILE__, 'zconform_settings', WP_PLUGIN_URL . '/zenziva-contact-form/zconform.png');
    add_submenu_page(__FILE__, 'Dashboard', 'Dashboard', 8, 'dashboard', 'zenziva_dashboard');
 }
 
@@ -284,7 +284,7 @@ function zconform_settings(){
 
 function zenziva_dashboard(){ ?>
     <div class="wrap">
-    	<iframe src="http://www.zenziva.com/v2/login/" frameBorder="0" width="98%" height="530"></iframe>    				
+    	<iframe src="http://www.zenziva.com/login.php" frameBorder="0" width="98%" height="530"></iframe>    				
     </div>
 <?php  }
 
@@ -376,7 +376,7 @@ function api_settings(){
     <table width="100%" cellpadding="5" cellspacing="5" border="0">
 		
         <tr>
-        	<td width="100">Userkey</td>
+        	<td width="200">Userkey</td>
             <td><input type="text" id="zconformuserkey" name="zconformuserkey" size="40px" value="<?php echo $username;?>"></td>
         </tr>
         <tr>
@@ -555,7 +555,7 @@ function instruction(){
 				<li>Userkey dan Passkey bisa didapatkan pada halaman member area SETTING > API SETTING.</li>
 	      <li>Plugin Wordpress ZenzivaSMS menggunakan account dari Zenziva. Jika belum mempunyai account, silahkan <a href="http://www.zenziva.com/form_register.php" target="_blank">daftar</a> terlebih dahulu.</li>
 	      <li>http API bisa didapatkan <a href="http://www.zenziva.com/apps/api.php" target="_blank">disini</a>. Pilih paket SMS yang akan digunakan (Reguler, Coorporate atau Masking) atau paket versi gratis (10 SMS per hari). Jika belum registrasi, silahkan daftar <a href="http://www.zenziva.com/form_register.php" target="_blank">disini</a></li>
-	      <li>Setting Widget ( Appearance > Widgets ) masukkan widget ZenzivaSMS ke sidebar yang diinginkan.</li>
+	      <li>Install dan masukkan shortcode [zconform] pada page atau post yang anda inginkan untuk menampilkan Contact Form.</li>
       </ul><br />
 			<i><strong>Catatan:</strong> Untuk paket versi gratis, pada akhir SMS akan disertakan tag "[sms by zenziva.com]" </i>
 		</div>
