@@ -44,10 +44,18 @@ Setelah mempunyai account di zenziva.com, silahkan login dan masuk ke menu SMS S
 
 == Changelog ==
 
+= 1.1 =
+* Fix captcha bug
+* Fix css bug
+
 = 1.0 =
 * First release
 
 == Upgrade Notice ==
+
+= 1.1 =
+* Fix captcha bug
+* Fix css bug
 
 = 1.0 =
 * Just release
