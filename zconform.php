@@ -3,7 +3,7 @@
 Plugin Name: Zenziva Contact Form
 Plugin URI: http://www.zenziva.com
 Description: Kirim email dan SMS alert ke administrator jika ada yang menghubungi melalui contact form. Kirim SMS alert kepada pengunjung yang telah mengisi contact form. Fitur kirim SMS menggunakan layanan dari <a href="http://www.zenziva.com" >Zenziva Online SMS Gateway</a>. Install dan masukkan shortcode <strong>[zconform]</strong> pada page atau post yang anda inginkan untuk menampilkan Contact Form.
-Version: 1.2
+Version: 1.3
 Author: Hardcoder
 Author URI: http://www.galerikita.net
 License: 
@@ -165,10 +165,11 @@ function zconform_shortcode(){
 		unset($_SESSION['captcha']);
 	}
 	
-	//$sms_show_msg	=	get_option('msg_success');
-	//$sms_show_class	=	 "ok";
+	$width = get_option('zconformwidth');
+	$inputwidth = $width-8;
+	$textareawidth = $width-5;
 	
-	$view .= '<div id="form-div">';
+	$view .= '<div id="form-div"' .($width!=""?'style="width: '.$width.'px"':"").'>';
 		$view .='<div id="title">'.(get_option('zconformtitle')!=""?get_option('zconformtitle'):"Contact form").'</div>';
 		
 		if (!empty($sms_show_msg)){
@@ -184,35 +185,35 @@ function zconform_shortcode(){
 			if(get_option('zconform_name') == "1"){
 			$view .= '<li>
 									<label class="field">Nama</label>
-									<input type="text" '.(get_option('zconform_name_r')=="1"?"class=required":"").' value="" name="nama" />
+									<input type="text" '.(get_option('zconform_name_r')=="1"?"class=required":"").' value="" name="nama" style="width: '.$inputwidth.'px; max-width: '.$inputwidth.'px;" />
 								</li>';
 			}
 			
 			if(get_option('zconform_email') == "1"){
 			$view .= '<li>
 									<label class="field">Email</label>
-									<input type="text" '.(get_option('zconform_email_r')=="1"?"class=required":"").' value="" name="email" />
+									<input type="text" '.(get_option('zconform_email_r')=="1"?"class=required":"").' value="" name="email" style="width: '.$inputwidth.'px; max-width: '.$inputwidth.'px;" />
 								</li>';
 			}
 			
 			if(get_option('zconform_nohp') == "1"){
 			$view .= '<li>
 									<label class="field">Nomor HP</label>
-									<input type="text" '.(get_option('zconform_nohp_r')=="1"?"class=required":"").' value="" name="nohp" />
+									<input type="text" '.(get_option('zconform_nohp_r')=="1"?"class=required":"").' value="" name="nohp" style="width: '.$inputwidth.'px; max-width: '.$inputwidth.'px;" />
 								</li>';
 			}
 			
 			if(get_option('zconform_address') == "1"){
 			$view .= '<li>
 									<label class="field">Alamat</label>
-									<input type="text" '.(get_option('zconform_address_r')=="1"?"class=required":"").' value="" name="alamat" />
+									<input type="text" '.(get_option('zconform_address_r')=="1"?"class=required":"").' value="" name="alamat" style="width: '.$inputwidth.'px; max-width: '.$inputwidth.'px;" />
 								</li>';
 			}
 			
 			if(get_option('zconform_msg') == "1"){
 			$view .= '<li>
 									<label class="field">Pesan</label>
-									<textarea '.(get_option('zconform_msg_r')=="1"?"class=required":"").' name="pesan"></textarea>
+									<textarea '.(get_option('zconform_msg_r')=="1"?"class=required":"").' name="pesan" style="width: '.$textareawidth.'px; max-width: '.$textareawidth.'px;" ></textarea>
 								</li>';
 			}
 			
@@ -418,11 +419,13 @@ function api_settings(){
 function form_settings(){
     $formtitle = get_option('zconformtitle');
     $formsubjek = get_option('zconformsubjek');
+    $formwidth = get_option('zconformwidth');
     $msg_success = get_option('msg_success');
 
     if(isset($_POST['zconformtitle'])){
         $formtitle = $_POST['zconformtitle'];
         $formsubjek = $_POST['zconformsubjek'];
+        $formwidth = $_POST['zconformwidth'];
         $msg_success = $_POST['msg_success'];
         
         $zconform_name = $_POST['zconform_name'];
@@ -439,6 +442,7 @@ function form_settings(){
         
         update_option("zconformtitle", $formtitle);
     		update_option("zconformsubjek", $formsubjek);
+    		update_option("zconformwidth", $formwidth);
     		update_option("msg_success", $msg_success);
     		
     		update_option("zconform_name", $zconform_name);
@@ -474,9 +478,13 @@ function form_settings(){
 				          <td><input type="text" id="zconformsubjek" name="zconformsubjek" size="40px" value="<?php echo $formsubjek;?>"></td>
 				        </tr>
 				        <tr>
+				        	<td>Ukuran Form</td>
+				          <td>Width: <input type="text" id="zconformwidth" name="zconformwidth" size="5px" value="<?php echo $formwidth;?>">px &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Height: <input type="text" disabled="" size="5px" value="auto"></td>
+				        </tr>
+				        <tr>
 				        	<td valign="top">Pesan sukses</td>
 				          <td>
-				            <textarea id="msg_success" name="msg_success" rows="4" cols="31" ><?php echo $msg_success;?></textarea>
+				            <textarea id="msg_success" name="msg_success" rows="3" cols="37" ><?php echo $msg_success;?></textarea>
 				          </td>
 				        </tr>
 				        <!--
