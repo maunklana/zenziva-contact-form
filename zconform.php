@@ -284,7 +284,7 @@ function zconform_settings(){
 
 function zenziva_dashboard(){ ?>
     <div class="wrap">
-    	<iframe src="http://www.zenziva.com/login.php" frameBorder="0" width="98%" height="530"></iframe>    				
+    	<iframe src="http://www.zenziva.com/login/" frameBorder="0" width="98%" height="530"></iframe>    				
     </div>
 <?php  }
 
