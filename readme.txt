@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=dr_so
 Tags: sms, wordpress, kirim sms, sms gratis, plugin, widget, contact form, contact, form
 Requires at least: 3.0.1
 Tested up to: 3.5.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,10 @@ Setelah mempunyai account di zenziva.com, silahkan login dan masuk ke menu SMS S
 3. Contact Form
 
 == Changelog ==
+
+= 1.2 =
+* SMTP debugging off
+
 = 1.1 =
 * Fix captcha bug.
 * Fix css bug.
@@ -51,6 +55,9 @@ Setelah mempunyai account di zenziva.com, silahkan login dan masuk ke menu SMS S
 * First release.
 
 == Upgrade Notice ==
+
+= 1.2 =
+SMTP debugging off
 
 = 1.1 =
 Upgrade for fix captcha image and Contact Form css.
