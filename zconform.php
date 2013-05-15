@@ -166,8 +166,8 @@ function zconform_shortcode(){
 	}
 	
 	$width = get_option('zconformwidth');
-	$inputwidth = $width-8;
-	$textareawidth = $width-5;
+	$inputwidth = 95;
+	$textareawidth = 95;
 	
 	$view .= '<div id="form-div"' .($width!=""?'style="width: '.$width.'px"':"").'>';
 		$view .='<div id="title">'.(get_option('zconformtitle')!=""?get_option('zconformtitle'):"Contact form").'</div>';
@@ -185,35 +185,35 @@ function zconform_shortcode(){
 			if(get_option('zconform_name') == "1"){
 			$view .= '<li>
 									<label class="field">Nama</label>
-									<input type="text" '.(get_option('zconform_name_r')=="1"?"class=required":"").' value="" name="nama" style="width: '.$inputwidth.'px; max-width: '.$inputwidth.'px;" />
+									<input type="text" '.(get_option('zconform_name_r')=="1"?"class=required":"").' value="" name="nama" style="width: '.$inputwidth.'%; max-width: '.$inputwidth.'%;" />
 								</li>';
 			}
 			
 			if(get_option('zconform_email') == "1"){
 			$view .= '<li>
 									<label class="field">Email</label>
-									<input type="text" '.(get_option('zconform_email_r')=="1"?"class=required":"").' value="" name="email" style="width: '.$inputwidth.'px; max-width: '.$inputwidth.'px;" />
+									<input type="text" '.(get_option('zconform_email_r')=="1"?"class=required":"").' value="" name="email" style="width: '.$inputwidth.'%; max-width: '.$inputwidth.'%;" />
 								</li>';
 			}
 			
 			if(get_option('zconform_nohp') == "1"){
 			$view .= '<li>
 									<label class="field">Nomor HP</label>
-									<input type="text" '.(get_option('zconform_nohp_r')=="1"?"class=required":"").' value="" name="nohp" style="width: '.$inputwidth.'px; max-width: '.$inputwidth.'px;" />
+									<input type="text" '.(get_option('zconform_nohp_r')=="1"?"class=required":"").' value="" name="nohp" style="width: '.$inputwidth.'%; max-width: '.$inputwidth.'%;" />
 								</li>';
 			}
 			
 			if(get_option('zconform_address') == "1"){
 			$view .= '<li>
 									<label class="field">Alamat</label>
-									<input type="text" '.(get_option('zconform_address_r')=="1"?"class=required":"").' value="" name="alamat" style="width: '.$inputwidth.'px; max-width: '.$inputwidth.'px;" />
+									<input type="text" '.(get_option('zconform_address_r')=="1"?"class=required":"").' value="" name="alamat" style="width: '.$inputwidth.'%; max-width: '.$inputwidth.'%;" />
 								</li>';
 			}
 			
 			if(get_option('zconform_msg') == "1"){
 			$view .= '<li>
 									<label class="field">Pesan</label>
-									<textarea '.(get_option('zconform_msg_r')=="1"?"class=required":"").' name="pesan" style="width: '.$textareawidth.'px; max-width: '.$textareawidth.'px;" ></textarea>
+									<textarea '.(get_option('zconform_msg_r')=="1"?"class=required":"").' name="pesan" style="width: '.$textareawidth.'%; max-width: '.$textareawidth.'%;" ></textarea>
 								</li>';
 			}
 			
