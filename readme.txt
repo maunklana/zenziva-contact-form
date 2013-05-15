@@ -43,7 +43,7 @@ Setelah mempunyai account di zenziva.com, silahkan login dan masuk ke menu SMS S
 3. Contact Form
 
 == Changelog ==
-= 1.2 =
+
 
 = 1.2 =
 * SMTP debugging off
