@@ -4,6 +4,8 @@ function send ($destination, $text){
     $jml = count($destination);
     
     for($i=0; $i<=$jml-1; $i++){
+    	mb_internal_encoding("UTF-8");
+	    mb_http_output("UTF-8");
 	    //global $user_ID;
 	    $username = get_option('zconformuserkey');
     	$password = get_option('zconformpasskey');
@@ -17,8 +19,15 @@ function send ($destination, $text){
 	                '&nohp='.rawurlencode($destination[$i]).
 	                '&pesan='.rawurlencode($text);
 	
-	    $smsglobal_response = file_get_contents($content);
-	    $xmldata = new SimpleXMLElement($smsglobal_response);
+	    //$getresponse = file_get_contents($content);
+	    $ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $content);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+			$getresponse = curl_exec($ch);
+			curl_close($ch);
+	    $xmldata = new SimpleXMLElement($getresponse);
 	    $status = $xmldata->message[0]->text;
   	}
 		if($status == "Success"){

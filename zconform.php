@@ -3,7 +3,7 @@
 Plugin Name: Zenziva Contact Form
 Plugin URI: http://www.zenziva.com
 Description: Kirim email dan SMS alert ke administrator jika ada yang menghubungi melalui contact form. Kirim SMS alert kepada pengunjung yang telah mengisi contact form. Fitur kirim SMS menggunakan layanan dari <a href="http://www.zenziva.com" >Zenziva Online SMS Gateway</a>. Install dan masukkan shortcode <strong>[zconform]</strong> pada page atau post yang anda inginkan untuk menampilkan Contact Form.
-Version: 1.3
+Version: 1.4
 Author: Hardcoder
 Author URI: http://www.galerikita.net
 License: 
