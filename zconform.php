@@ -593,10 +593,9 @@ function quick_link(){?>
                     <ul class="sms_list">
                     	<li><a href="http://www.zenziva.com" target="_blank">Visit Our Site</a></li>
                       <li><a href="http://www.zenziva.com/apps/credit.php" target="_blank">Add SMS Credit</a></li>
-                      <li><a href="http://www.zenziva.com/harga.php" target="_blank">Price</a></li>
-                      <li><a href="http://www.zenziva.com/artikel.php" target="_blank">Article</a></li>
-                      <li><a href="http://www.zenziva.com/faq.php" target="_blank">F.A.Q</a></li>
-                      <li><a href="http://www.zenziva.com/kontak.php" target="_blank">Contact us</a></li>
+                      <li><a href="http://zenziva.com/harga/" target="_blank">Price</a></li>
+                      <li><a href="http://zenziva.com/artikel/" target="_blank">Article</a></li>
+                      <li><a href="http://zenziva.com/kontak/" target="_blank">Contact us</a></li>
                     </ul>
                     </td>
                 </tr>
