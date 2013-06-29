@@ -30,7 +30,7 @@ Kirim email dan SMS alert ke administrator jika ada yang menghubungi melalui con
 
 = Bagaimana menggunakan plugin ini ? =
 
-Anda terlebih dahulu harus mempunyai account di zenziva.com. Untuk daftar klik <a href="http://www.zenziva.com/form_register.php" target="_blank">disini</a>
+Anda terlebih dahulu harus mempunyai account di zenziva.com. Untuk daftar klik <a href="http://www.zenziva.com/harga/" target="_blank">disini</a>
 
 = Dimana untuk mendapatkan http Api ? =
 
