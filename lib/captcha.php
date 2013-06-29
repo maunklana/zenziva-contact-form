@@ -140,8 +140,6 @@ class SimpleCaptcha {
         'Sansb'  => array('spacing' =>-1.5,'minSize' => 28, 'maxSize' => 31, 'font' => 'FreeSansBold.ttf'),
         'Sansbo' => array('spacing' => -2, 'minSize' => 24, 'maxSize' => 30, 'font' => 'FreeSansBoldOblique.ttf'),
         'Sanso'  => array('spacing' => -2, 'minSize' => 30, 'maxSize' => 30, 'font' => 'FreeSansOblique.ttf'),
-        'Serif'  => array('spacing' => -2, 'minSize' => 24, 'maxSize' => 34, 'font' => 'FreeSerif.ttf'),
-        'Serifb' => array('spacing' => -2, 'minSize' => 28, 'maxSize' => 32, 'font' => 'FreeSerifBold.ttf'),
     );
 
     /** Wave configuracion in X and Y axes */
