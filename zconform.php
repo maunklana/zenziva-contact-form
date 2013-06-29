@@ -561,8 +561,8 @@ function instruction(){
 			<ul class="sms_list">
 				<li>HTTP API (Zenziva Reguler / Free Trial): <b>http://zenziva.com/apps/smsapi.php</b></li>
 				<li>Userkey dan Passkey bisa didapatkan pada halaman member area SETTING > API SETTING.</li>
-	      <li>Plugin Wordpress ZenzivaSMS menggunakan account dari Zenziva. Jika belum mempunyai account, silahkan <a href="http://www.zenziva.com/form_register.php" target="_blank">daftar</a> terlebih dahulu.</li>
-	      <li>http API bisa didapatkan <a href="http://www.zenziva.com/apps/api.php" target="_blank">disini</a>. Pilih paket SMS yang akan digunakan (Reguler, Coorporate atau Masking) atau paket versi gratis (10 SMS per hari). Jika belum registrasi, silahkan daftar <a href="http://www.zenziva.com/form_register.php" target="_blank">disini</a></li>
+	      <li>Plugin Wordpress ZenzivaSMS menggunakan account dari Zenziva. Jika belum mempunyai account, silahkan <a href="http://www.zenziva.com/harga/" target="_blank">daftar</a> terlebih dahulu.</li>
+	      <li>http API bisa didapatkan <a href="http://www.zenziva.com/apps/api.php" target="_blank">disini</a>. Pilih paket SMS yang akan digunakan (Reguler, Coorporate atau Masking) atau paket versi gratis (10 SMS per hari). Jika belum registrasi, silahkan daftar <a href="http://www.zenziva.com/harga/" target="_blank">disini</a></li>
 	      <li>Install dan masukkan shortcode [zconform] pada page atau post yang anda inginkan untuk menampilkan Contact Form.</li>
       </ul><br />
 			<i><strong>Catatan:</strong> Untuk paket versi gratis, pada akhir SMS akan disertakan tag "[sms by zenziva.com]" </i>
